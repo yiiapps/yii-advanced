@@ -1,8 +1,8 @@
 <?php
-return [
+$config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -11,3 +11,7 @@ return [
         ],
     ],
 ];
+
+$configSmarty = include_once 'smarty.php';
+
+return $configSmarty + $config;
