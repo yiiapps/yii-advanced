@@ -56,7 +56,7 @@ $config['modules']['admin'] = [
     'layout' => 'left-menu',
     'menus' => [], //详见 mdmsoft/yii2-admin
 ];
-$config['aliases']['@yiiapps/adminlte'] = '@vendor/yiiapps/adminlte-asset-ext';
+// $config['aliases']['@yiiapps/adminlte'] = '@vendor/yiiapps/adminlte-asset-ext';
 $config['components']['user'] = [
     'identityClass' => 'mdm\admin\models\User',
     'loginUrl' => ['admin/user/login'],
@@ -70,7 +70,7 @@ $config['as access'] = [
     'allowActions' => [
         'site/*',
         'blog/*',
-        'admin/*',
+        // 'admin/*',
     ],
 ];
 

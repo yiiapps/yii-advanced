@@ -6,17 +6,11 @@ ln -s /work/d/phpapps/yii-advanced/nginx.conf yii-advanced.conf
 app-admin独立--从backend copy
 
 集成 https://github.com/mdmsoft/yii2-admin
-创建数据库 yii-advanced
+创建数据库 yii-advanced 导入admin.sql 或
 ./yii migrate --migrationPath=@mdm/admin/migrations
 ./yii migrate --migrationPath=@yii/rbac/migrations
-Signup User
+
+Signup User 添加新用户
 http://localhost/myapp/admin/user/signup
-$config['as access'] = [
-    'allowActions' => [
-        ....
-        'admin/*',创建用户配置权限后删除这里
-    ],
-];
-导入admin.sql
 
 集成smarty adminlte
