@@ -14,3 +14,5 @@ Signup User 添加新用户
 http://localhost/myapp/admin/user/signup
 
 集成smarty adminlte
+
+权限问题

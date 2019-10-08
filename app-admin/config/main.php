@@ -63,7 +63,7 @@ $config['components']['user'] = [
     'enableAutoLogin' => false,
 ];
 $config['components']['authManager'] = [
-    'class' => 'yii\rbac\DbManager',
+    'class' => 'common\DbManager',
 ];
 $config['as access'] = [
     'class' => 'mdm\admin\components\AccessControl',
