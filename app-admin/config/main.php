@@ -59,7 +59,7 @@ $config['modules']['admin'] = [
 // $config['aliases']['@yiiapps/adminlte'] = '@vendor/yiiapps/adminlte-asset-ext';
 $config['components']['user'] = [
     'identityClass' => 'mdm\admin\models\User',
-    'loginUrl' => ['admin/user/login'],
+    'loginUrl' => ['site/login'],
     'enableAutoLogin' => false,
 ];
 $config['components']['authManager'] = [
@@ -69,7 +69,7 @@ $config['as access'] = [
     'class' => 'mdm\admin\components\AccessControl',
     'allowActions' => [
         // 'site/*',
-        // 'admin/*',
+        'admin/user/login',
     ],
 ];
 
