@@ -1,7 +1,3 @@
-集成smarty adminlte
-
-
-================================
 composer create-project --prefer-dist yiisoft/yii2-app-advanced yii-advanced
 ln -s /work/d/phpapps/yii-advanced/nginx.conf yii-advanced.conf
 /etc/init.d/nginx restart
@@ -21,3 +17,6 @@ $config['as access'] = [
         'admin/*',创建用户配置权限后删除这里
     ],
 ];
+导入admin.sql
+
+集成smarty adminlte
