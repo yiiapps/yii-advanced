@@ -68,8 +68,7 @@ $config['components']['authManager'] = [
 $config['as access'] = [
     'class' => 'mdm\admin\components\AccessControl',
     'allowActions' => [
-        'site/*',
-        'blog/*',
+        // 'site/*',
         // 'admin/*',
     ],
 ];
