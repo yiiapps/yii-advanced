@@ -12,11 +12,11 @@
 {{block name=content}}
 <div class="login-box">
   <div class="login-logo">
-    <a href="/AdminLTE-2.4.18/index2.html"><b>Admin</b>LTE</a>
+    <a href="/AdminLTE-2.4.18/index2.html"><b>后台管理</b>系统</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">登录</p>
 
     <form action="/site/login" method="post">
       <div class="form-group has-feedback">
@@ -28,13 +28,14 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
+        {{*
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Remember Me
+              <input type="checkbox"> 记住我
             </label>
           </div>
-        </div>
+        </div>*}}
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
