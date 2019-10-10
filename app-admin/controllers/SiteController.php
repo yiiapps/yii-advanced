@@ -7,13 +7,15 @@ use mdm\admin\models\form\Login;
 /**
  * Site controller
  */
-class SiteController extends ControllerAdmin {
-    public function actionIndex() {
-        $menus = \mdm\admin\components\MenuHelper::getAssignedMenu(\Yii::$app->user->id);
-        return $this->render('index.tpl', ['menus' => $menus, 'username' => \Yii::$app->user->identity->username]);
+class SiteController extends ControllerAdmin
+{
+    public function actionIndex()
+    {
+        return $this->render('index.tpl');
     }
 
-    public function actionLogout() {
+    public function actionLogout()
+    {
         \Yii::$app->getUser()->logout();
 
         return $this->goHome();
@@ -22,7 +24,8 @@ class SiteController extends ControllerAdmin {
      * Login
      * @return string
      */
-    public function actionLogin() {
+    public function actionLogin()
+    {
         // die(__METHOD__);
         if (!\Yii::$app->getUser()->isGuest) {
             return $this->goHome();

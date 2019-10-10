@@ -12,6 +12,7 @@ $config = [
     'controllerNamespace' => 'admin\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'name' => '后台管理系统',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -52,11 +53,11 @@ $config = [
 
 //admin
 $config['modules']['admin'] = [
-    'class' => 'mdm\admin\Module',
-    'layout' => 'left-menu',
+    'class' => 'yiiapps\adminlte\Module',
+    'layout' => 'main',
     'menus' => [], //详见 mdmsoft/yii2-admin
 ];
-// $config['aliases']['@yiiapps/adminlte'] = '@vendor/yiiapps/adminlte-asset-ext';
+$config['aliases']['@yiiapps/adminlte'] = '@vendor/yiiapps/adminlte-asset-ext';
 $config['components']['user'] = [
     'identityClass' => 'mdm\admin\models\User',
     'loginUrl' => ['site/login'],
@@ -68,7 +69,7 @@ $config['components']['authManager'] = [
 $config['as access'] = [
     'class' => 'mdm\admin\components\AccessControl',
     'allowActions' => [
-        // 'site/*',
+        'assignment/*',
         'admin/user/login',
     ],
 ];

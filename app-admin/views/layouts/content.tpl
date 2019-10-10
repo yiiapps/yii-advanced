@@ -22,7 +22,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>后台管理</b>系统</span>
+      <span class="logo-lg">{{$appname}}</span>
     </a>
 
     <!-- Header Navbar -->
@@ -214,21 +214,21 @@
       <!-- /.search form -->*}}
 
       <!-- Sidebar Menu -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">菜单</li>
+      <ul class="sidebar-menu tree" data-widget="tree">
+        <li class="active"><a href="/admin/user/change-password"><i class="fa fa-dashboard"></i> <span>修改密码</span></a></li>
         {{foreach from=$menus key=k item=value}}
           {{if empty($value['items'])}}
-            <li class="active"><a href="{{$value['url'][0]}}"><i class="fa fa-link"></i> <span>{{$value['label']}}</span></a></li>
+            <li class="active"><a href="{{$value['url'][0]}}"><i class="fa fa-share"></i> <span>{{$value['label']}}</span></a></li>
           {{else}}
             <li class="treeview">
-              <a href="{{$value['url'][0]}}"><i class="fa fa-link"></i> <span>{{$value['label']}}</span>
+              <a href="{{$value['url'][0]}}"><i class="fa fa-share"></i> <span>{{$value['label']}}</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
               <ul class="treeview-menu">
                 {{foreach from=$value['items'] item=item key=key name=name}}
-                  <li><a href="{{$item['url'][0]}}">{{$item['label']}}</a></li>
+                <li class="active"><a href="{{$item['url'][0]}}"><i class="fa fa-circle-o"></i><span>{{$item['label']}}</span></a></li>
                 {{/foreach}}
               </ul>
             </li>

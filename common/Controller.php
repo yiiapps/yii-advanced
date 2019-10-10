@@ -15,28 +15,10 @@ class Controller extends \yii\web\Controller
 
     public function render($tpl, $data = [])
     {
-        $data += [
-            'router' => [
-                'controller' => \Yii::$app->controller->id,
-                'action' => \Yii::$app->controller->action->id,
-                'module' => \Yii::$app->controller->module->id,
-            ],
-            'url' => [
-                'static' => '',
-            ],
-        ];
+        $data['appname'] = \Yii::$app->name;
         if ($userId = Yii::$app->user->getId()) {
-            $this->isLogin = true;
-            $userInfo = Yii::$app->authManager->getRolesByUser($userId);
-            $data['userInfo'] = [
-                'role' => key($userInfo),
-                'id' => $userId,
-                'name' => Yii::$app->user->identity->username,
-            ];
-            $data['isLogin'] = $this->isLogin;
-        } else {
-            $data['userInfo'] = ['role' => '', 'name' => '', 'id' => 0];
-            $data['isLogin'] = false;
+            $data['menus'] = \mdm\admin\components\MenuHelper::getAssignedMenu(\Yii::$app->user->id);
+            $data['username'] = \Yii::$app->user->identity->username;
         }
 
         if ($this->isJson()) {
