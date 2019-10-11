@@ -18,8 +18,8 @@ $config = [
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            // 'identityClass' => 'common\models\User',
+            // 'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [
@@ -65,6 +65,10 @@ $config['components']['user'] = [
 ];
 $config['components']['authManager'] = [
     'class' => 'common\DbManager',
+    'itemTable' => 'admin_auth_item',
+    'itemChildTable' => 'admin_auth_item_child',
+    'assignmentTable' => 'admin_auth_assignment',
+    'ruleTable' => 'admin_auth_rule',
 ];
 $config['as access'] = [
     'class' => 'mdm\admin\components\AccessControl',
