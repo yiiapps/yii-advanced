@@ -73,9 +73,26 @@ $config['components']['authManager'] = [
 $config['as access'] = [
     'class' => 'mdm\admin\components\AccessControl',
     'allowActions' => [
-        'assignment/*',
+        'gii/*',
         'admin/user/login',
     ],
 ];
+
+// if (YII_ENV_DEV) {
+// configuration adjustments for 'dev' environment
+$config['bootstrap'][] = 'debug';
+$config['modules']['debug'] = [
+    'class' => 'yii\debug\Module',
+    // uncomment the following to add your IP if you are not connecting from localhost.
+    'allowedIPs' => ['127.0.0.1', '::1', '10.0.75.1', '172.17.0.1', '10.1.176.48', '172.30.32.1', '172.19.128.209'],
+];
+
+$config['bootstrap'][] = 'gii';
+$config['modules']['gii'] = [
+    'class' => 'yii\gii\Module',
+    // uncomment the following to add your IP if you are not connecting from localhost.
+    'allowedIPs' => ['127.0.0.*', '::1', '172.17.0.1'],
+];
+// }
 
 return $config;
