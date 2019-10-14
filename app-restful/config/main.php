@@ -47,6 +47,9 @@ $config = [
                     'extraPatterns' => [
                         'POST login' => 'login',
                         'POST regist' => 'regist',
+                        'GET create-token' => 'create-token',
+                        'GET parse-token' => 'parse-token',
+                        'GET validate-token' => 'validate-token',
                     ],
                 ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'restfultest'],
@@ -55,6 +58,8 @@ $config = [
         'jwt' => [
             'key' => 'secret',
             'class' => 'sizeg\jwt\Jwt',
+            // // You have to configure ValidationData informing all claims you want to validate the token.
+            // 'jwtValidationData' => \app\components\JwtValidationData::class,
         ],
     ],
     'params' => $params,

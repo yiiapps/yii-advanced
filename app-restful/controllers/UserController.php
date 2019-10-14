@@ -35,4 +35,63 @@ class UserController extends ActiveController
         }
         return ['status' => 1, 'msg' => 'faild', 'errors' => $model->getErrors()];
     }
+
+    public function actionCreateToken()
+    {
+        $time = time();
+        $token = Yii::$app->jwt->getBuilder()
+            ->issuedBy('http://example.com') // Configures the issuer (iss claim)
+            ->permittedFor('http://example.org') // Configures the audience (aud claim)
+            ->identifiedBy('4f1g23a12aa', true) // Configures the id (jti claim), replicating as a header item
+            ->issuedAt($time) // Configures the time that the token was issue (iat claim)
+            ->canOnlyBeUsedAfter($time + 60) // Configures the time that the token can be used (nbf claim)
+            ->expiresAt($time + 3600) // Configures the expiration time of the token (exp claim)
+            ->withClaim('uid', 1) // Configures a new claim, called "uid"
+            ->getToken(); // Retrieves the generated token
+
+        $token->getHeaders(); // Retrieves the token headers
+        $token->getClaims(); // Retrieves the token claims
+
+        return [
+            'header' => $token->getHeader('jti'), // will print "4f1g23a12aa"
+            'claim_iss' => $token->getClaim('iss'), // will print "http://example.com"
+            'clain_uid' => $token->getClaim('uid'), // will print "1"
+            'token' => (string) $token, // The string representation of the object is a JWT string (pretty easy, right?)
+        ];
+    }
+
+    public function actionParseToken()
+    {
+        $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIiwianRpIjoiNGYxZzIzYTEyYWEifQ.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLmNvbSIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUub3JnIiwianRpIjoiNGYxZzIzYTEyYWEiLCJpYXQiOjE1NzEwMjQ5MTMsIm5iZiI6MTU3MTAzMDkxMywiZXhwIjoxNTcxMDI4NTEzLCJ1aWQiOjF9.";
+        $token = Yii::$app->jwt->getParser()->parse($token); // Parses from a string
+        $token->getHeaders(); // Retrieves the token header
+        $token->getClaims(); // Retrieves the token claims
+
+        return [
+            $token->getHeader('jti'), // will print "4f1g23a12aa"
+            $token->getClaim('iss'), // will print "http://example.com"
+            $token->getClaim('uid'), // will print "1"
+        ];
+    }
+
+    public function actionValidateToken()
+    {
+        $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIiwianRpIjoiNGYxZzIzYTEyYWEifQ.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLmNvbSIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUub3JnIiwianRpIjoiNGYxZzIzYTEyYWEiLCJpYXQiOjE1NzEwMjUwMjUsIm5iZiI6MTU3MTAyNTA4NSwiZXhwIjoxNTcxMDI4NjI1LCJ1aWQiOjF9.";
+        $token = Yii::$app->jwt->getParser()->parse($token);
+
+        $data = Yii::$app->jwt->getValidationData(); // It will use the current time to validate (iat, nbf and exp)
+        $data->setIssuer('http://example.com');
+        $data->setAudience('http://example.org');
+        $data->setId('4f1g23a12aa');
+
+        var_dump($token->validate($data)); // false, because we created a token that cannot be used before of `time() + 60`
+
+        $data->setCurrentTime(time() + 61); // changing the validation time to future
+
+        var_dump($token->validate($data)); // true, because validation information is equals to data contained on the token
+
+        $data->setCurrentTime(time() + 4000); // changing the validation time to future
+
+        var_dump($token->validate($data)); // false, because token is expired since current time is greater than exp
+    }
 }
