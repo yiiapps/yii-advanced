@@ -18,7 +18,7 @@ $config = [
             ],
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'restful\models\User',
             'enableAutoLogin' => false,
             'identityCookie' => false,
             'enableSession' => false,
@@ -56,10 +56,10 @@ $config = [
             ],
         ],
         'jwt' => [
+            'class' => \sizeg\jwt\Jwt::class,
             'key' => 'secret',
-            'class' => 'sizeg\jwt\Jwt',
-            // // You have to configure ValidationData informing all claims you want to validate the token.
-            // 'jwtValidationData' => \app\components\JwtValidationData::class,
+            // You have to configure ValidationData informing all claims you want to validate the token.
+            'jwtValidationData' => \restful\components\JwtValidationData::class,
         ],
     ],
     'params' => $params,

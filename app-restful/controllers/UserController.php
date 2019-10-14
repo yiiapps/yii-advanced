@@ -38,19 +38,23 @@ class UserController extends ActiveController
 
     private function createToken($uid)
     {
+        $jwt = Yii::$app->jwt;
+        $signer = $jwt->getSigner('HS256');
+        $key = $jwt->getKey();
         $time = time();
-        $token = Yii::$app->jwt->getBuilder()
+
+        $token = $jwt->getBuilder()
             ->issuedBy(Yii::$app->params['jwt']['issuedBy']) // Configures the issuer (iss claim)
             ->permittedFor(Yii::$app->params['jwt']['permittedFor']) // Configures the audience (aud claim)
             ->identifiedBy(Yii::$app->params['jwt']['identifiedBy'], true) // Configures the id (jti claim), replicating as a header item
             ->issuedAt($time) // Configures the time that the token was issue (iat claim)
-            ->canOnlyBeUsedAfter($time) // Configures the time that the token can be used (nbf claim)
+        // ->canOnlyBeUsedAfter($time) // Configures the time that the token can be used (nbf claim)
             ->expiresAt($time + Yii::$app->params['jwt']['expiresAt']) // Configures the expiration time of the token (exp claim)
             ->withClaim('uid', $uid) // Configures a new claim, called "uid"
-            ->getToken(); // Retrieves the generated token
+            ->getToken($signer, $key); // Retrieves the generated token
 
-        $token->getHeaders(); // Retrieves the token headers
-        $token->getClaims(); // Retrieves the token claims
+        // $token->getHeaders(); // Retrieves the token headers
+        // $token->getClaims(); // Retrieves the token claims
 
         return (string) $token;
     }

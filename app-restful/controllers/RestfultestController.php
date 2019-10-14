@@ -1,6 +1,7 @@
 <?php
 namespace restful\controllers;
 
+use sizeg\jwt\JwtHttpBearerAuth;
 use yii\rest\ActiveController;
 
 class RestfultestController extends ActiveController
@@ -14,7 +15,10 @@ class RestfultestController extends ActiveController
     {
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
-            'class' => \sizeg\jwt\JwtHttpBearerAuth::className(),
+            'class' => JwtHttpBearerAuth::class,
+            'optional' => [
+                'login',
+            ],
         ];
 
         return $behaviors;
