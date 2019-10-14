@@ -1,9 +1,9 @@
 <?php
 namespace restful\controllers;
 
-use common\models\User;
 use restful\models\LoginForm;
 use restful\models\SignupForm;
+use restful\models\User;
 use Yii;
 use yii\rest\ActiveController;
 
@@ -20,7 +20,7 @@ class UserController extends ActiveController
     {
         $model = new LoginForm();
         if ($model->load(Yii::$app->getRequest()->getBodyParams(), '') && $model->login()) {
-            return ['status' => 0, 'msg' => 'success', 'user' => Yii::$app->user];
+            return ['status' => 0, 'msg' => 'success', 'data' => ['token' => $this->createToken(Yii::$app->user->id)]];
         } else {
             return ['status' => 1, 'msg' => '登录失败'];
         }
@@ -36,28 +36,23 @@ class UserController extends ActiveController
         return ['status' => 1, 'msg' => 'faild', 'errors' => $model->getErrors()];
     }
 
-    public function actionCreateToken()
+    private function createToken($uid)
     {
         $time = time();
         $token = Yii::$app->jwt->getBuilder()
-            ->issuedBy('http://example.com') // Configures the issuer (iss claim)
-            ->permittedFor('http://example.org') // Configures the audience (aud claim)
-            ->identifiedBy('4f1g23a12aa', true) // Configures the id (jti claim), replicating as a header item
+            ->issuedBy(Yii::$app->params['jwt']['issuedBy']) // Configures the issuer (iss claim)
+            ->permittedFor(Yii::$app->params['jwt']['permittedFor']) // Configures the audience (aud claim)
+            ->identifiedBy(Yii::$app->params['jwt']['identifiedBy'], true) // Configures the id (jti claim), replicating as a header item
             ->issuedAt($time) // Configures the time that the token was issue (iat claim)
-            ->canOnlyBeUsedAfter($time + 60) // Configures the time that the token can be used (nbf claim)
-            ->expiresAt($time + 3600) // Configures the expiration time of the token (exp claim)
-            ->withClaim('uid', 1) // Configures a new claim, called "uid"
+            ->canOnlyBeUsedAfter($time) // Configures the time that the token can be used (nbf claim)
+            ->expiresAt($time + Yii::$app->params['jwt']['expiresAt']) // Configures the expiration time of the token (exp claim)
+            ->withClaim('uid', $uid) // Configures a new claim, called "uid"
             ->getToken(); // Retrieves the generated token
 
         $token->getHeaders(); // Retrieves the token headers
         $token->getClaims(); // Retrieves the token claims
 
-        return [
-            'header' => $token->getHeader('jti'), // will print "4f1g23a12aa"
-            'claim_iss' => $token->getClaim('iss'), // will print "http://example.com"
-            'clain_uid' => $token->getClaim('uid'), // will print "1"
-            'token' => (string) $token, // The string representation of the object is a JWT string (pretty easy, right?)
-        ];
+        return (string) $token;
     }
 
     public function actionParseToken()

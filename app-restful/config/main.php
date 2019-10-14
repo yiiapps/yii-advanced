@@ -68,4 +68,6 @@ $config = [
     'timeZone' => 'Asia/Shanghai',
 ];
 
+$config['params']['jwt'] = require "params-jwt.php";
+
 return $config;
