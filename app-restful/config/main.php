@@ -41,32 +41,16 @@ $config = [
                 ],
             ],
         ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'v1/user',
-                    'extraPatterns' => [
-                        'POST login' => 'login',
-                        'POST regist' => 'regist',
-                    ],
-                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['v1/user', 'v2/user'], 'extraPatterns' => [
+                    'POST login' => 'login',
+                    'POST regist' => 'regist',
+                ]],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'v1/restfultest'],
-
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'v2/user',
-                    'extraPatterns' => [
-                        'POST login' => 'login',
-                        'POST regist' => 'regist',
-                    ],
-                ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'v2/restfultest'],
             ],
         ],
