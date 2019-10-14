@@ -1,6 +1,7 @@
 <?php
-namespace common\models;
+namespace restful\models;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
 
@@ -42,7 +43,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+                $this->addError($attribute, '用户名密码错误');
             }
         }
     }
