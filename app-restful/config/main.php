@@ -45,8 +45,8 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'user',
                     'extraPatterns' => [
-                        'GET login' => 'login',
-                        'GET search' => 'search',
+                        'POST login' => 'login',
+                        'POST regist' => 'regist',
                     ],
                 ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'restfultest'],
@@ -58,6 +58,9 @@ $config = [
         ],
     ],
     'params' => $params,
+
+    'language' => 'zh-CN',
+    'timeZone' => 'Asia/Shanghai',
 ];
 
 return $config;

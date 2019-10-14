@@ -10,6 +10,9 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+
+    'language' => 'zh-CN',
+    'timeZone' => 'Asia/Shanghai',
 ];
 
 $configSmarty = include_once 'smarty.php';
