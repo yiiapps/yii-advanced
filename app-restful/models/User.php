@@ -12,14 +12,6 @@ class User extends \common\models\User
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
     }
-
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'name' => 'Name',
-        ];
-    }
     /**
      * {@inheritdoc}
      * @param \Lcobucci\JWT\Token $token
