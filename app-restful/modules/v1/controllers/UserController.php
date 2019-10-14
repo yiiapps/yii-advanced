@@ -1,9 +1,9 @@
 <?php
-namespace restful\controllers;
+namespace restful\modules\v1\controllers;
 
-use restful\models\LoginForm;
-use restful\models\SignupForm;
-use restful\models\User;
+use restful\modules\v1\models\LoginForm;
+use restful\modules\v1\models\SignupForm;
+use restful\modules\v1\models\User;
 use Yii;
 use yii\rest\ActiveController;
 

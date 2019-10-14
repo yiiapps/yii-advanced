@@ -1,12 +1,12 @@
 <?php
-namespace restful\controllers;
+namespace restful\modules\v1\controllers;
 
 use sizeg\jwt\JwtHttpBearerAuth;
 use yii\rest\ActiveController;
 
 class RestfultestController extends ActiveController
 {
-    public $modelClass = 'restful\models\RestfulTest';
+    public $modelClass = 'restful\modules\v1\models\RestfulTest';
 
     /**
      * @inheritdoc

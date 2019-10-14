@@ -1,5 +1,5 @@
 <?php
-namespace restful\models;
+namespace restful\modules\v1\models;
 
 /**
  * Login form

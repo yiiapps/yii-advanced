@@ -7,6 +7,14 @@ $params = array_merge(
 );
 
 $config = [
+    'modules' => [
+        'v1' => [
+            'class' => 'restful\modules\v1\Module',
+        ],
+        'v2' => [
+            'class' => 'restful\modules\v2\Module',
+        ],
+    ],
     'id' => 'app-restful',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -18,7 +26,7 @@ $config = [
             ],
         ],
         'user' => [
-            'identityClass' => 'restful\models\User',
+            'identityClass' => 'restful\modules\v1\models\User',
             'enableAutoLogin' => false,
             'identityCookie' => false,
             'enableSession' => false,
@@ -43,16 +51,23 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'user',
+                    'controller' => 'v1/user',
                     'extraPatterns' => [
                         'POST login' => 'login',
                         'POST regist' => 'regist',
-                        'GET create-token' => 'create-token',
-                        'GET parse-token' => 'parse-token',
-                        'GET validate-token' => 'validate-token',
                     ],
                 ],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'restfultest'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'v1/restfultest'],
+
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v2/user',
+                    'extraPatterns' => [
+                        'POST login' => 'login',
+                        'POST regist' => 'regist',
+                    ],
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'v2/restfultest'],
             ],
         ],
         'jwt' => [

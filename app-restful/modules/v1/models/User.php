@@ -1,6 +1,6 @@
 <?php
 
-namespace restful\Models;
+namespace restful\modules\v1\models;
 
 class User extends \common\models\User
 {
