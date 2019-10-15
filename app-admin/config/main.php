@@ -13,6 +13,9 @@ $config = [
     'bootstrap' => ['log'],
     'modules' => [],
     'name' => '后台管理系统',
+    'aliases' => [
+        '@yiiapps/yuqiutils' => '@vendor/yiiapps/yuqiutils',
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -50,49 +53,24 @@ $config = [
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Shanghai',
 ];
+$config = array_merge_recursive($config, require "../../vendor/yiiapps/adminlte-asset-ext/configs/adminlte.php");
+// var_dump($config);exit;
 
-//admin
-$config['modules']['admin'] = [
-    'class' => 'yiiapps\adminlte\Module',
-    'layout' => 'main',
-    'menus' => [], //详见 mdmsoft/yii2-admin
-];
-$config['aliases']['@yiiapps/adminlte'] = '@vendor/yiiapps/adminlte-asset-ext';
-$config['components']['user'] = [
-    'identityClass' => 'mdm\admin\models\User',
-    'loginUrl' => ['site/login'],
-    'enableAutoLogin' => false,
-];
-$config['components']['authManager'] = [
-    'class' => 'common\DbManager',
-    'itemTable' => 'admin_auth_item',
-    'itemChildTable' => 'admin_auth_item_child',
-    'assignmentTable' => 'admin_auth_assignment',
-    'ruleTable' => 'admin_auth_rule',
-];
-$config['as access'] = [
-    'class' => 'mdm\admin\components\AccessControl',
-    'allowActions' => [
-        'gii/*',
-        'admin/user/login',
-    ],
-];
-
-// if (YII_ENV_DEV) {
+if (YII_ENV_DEV) {
 // configuration adjustments for 'dev' environment
-$config['bootstrap'][] = 'debug';
-$config['modules']['debug'] = [
-    'class' => 'yii\debug\Module',
-    // uncomment the following to add your IP if you are not connecting from localhost.
-    'allowedIPs' => ['127.0.0.1', '::1', '10.0.75.1', '172.17.0.1', '10.1.176.48', '172.30.32.1', '172.19.128.209'],
-];
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        // uncomment the following to add your IP if you are not connecting from localhost.
+        'allowedIPs' => ['127.0.0.1', '::1'],
+    ];
 
-$config['bootstrap'][] = 'gii';
-$config['modules']['gii'] = [
-    'class' => 'yii\gii\Module',
-    // uncomment the following to add your IP if you are not connecting from localhost.
-    'allowedIPs' => ['127.0.0.*', '::1', '172.17.0.1'],
-];
-// }
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+        // uncomment the following to add your IP if you are not connecting from localhost.
+        'allowedIPs' => ['127.0.0.*', '::1', '172.17.0.1'],
+    ];
+}
 
 return $config;

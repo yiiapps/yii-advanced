@@ -1,8 +1,8 @@
 <?php
 namespace admin\controllers;
 
-use admin\libs\ControllerAdmin;
 use mdm\admin\models\form\Login;
+use yiiapps\yuqiutils\ControllerAdmin;
 
 /**
  * Site controller

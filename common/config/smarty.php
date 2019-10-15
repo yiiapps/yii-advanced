@@ -5,7 +5,7 @@ return [
         'view' => [
             'renderers' => [
                 'tpl' => [
-                    'class' => 'common\ViewRender',
+                    'class' => 'yiiapps\yuqiutils\ViewRender',
                     //'cachePath' => '@runtime/Smarty/cache',
                 ],
             ],
