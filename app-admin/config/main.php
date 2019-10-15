@@ -13,9 +13,6 @@ $config = [
     'bootstrap' => ['log'],
     'modules' => [],
     'name' => '后台管理系统',
-    'aliases' => [
-        '@yiiapps/yuqiutils' => '@vendor/yiiapps/yuqiutils',
-    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',

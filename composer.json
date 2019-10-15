@@ -22,7 +22,7 @@
         "mdmsoft/yii2-admin": "~2.0",
         "yiiapps/adminlte-asset-ext": "^0.2.190924",
         "sizeg/yii2-jwt": "^2.0",
-        "yiiapps/yuqiutils": "^0.0.191015"
+        "yiiapps/yuqiutils": "^0.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
