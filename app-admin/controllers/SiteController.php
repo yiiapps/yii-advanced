@@ -26,7 +26,6 @@ class SiteController extends ControllerAdmin
      */
     public function actionLogin()
     {
-        // die(__METHOD__);
         if (!\Yii::$app->getUser()->isGuest) {
             return $this->goHome();
         }

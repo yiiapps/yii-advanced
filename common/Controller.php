@@ -17,7 +17,6 @@ class Controller extends \yii\web\Controller
     {
         $data['appname'] = \Yii::$app->name;
         if ($userId = Yii::$app->user->getId()) {
-            $data['menus'] = \mdm\admin\components\MenuHelper::getAssignedMenu(\Yii::$app->user->id);
             $data['username'] = \Yii::$app->user->identity->username;
         }
 
