@@ -58,7 +58,7 @@ $config = [
             'class' => \sizeg\jwt\Jwt::class,
             'key' => 'secret',
             // You have to configure ValidationData informing all claims you want to validate the token.
-            'jwtValidationData' => \restful\components\JwtValidationData::class,
+            'jwtValidationData' => \yiiapps\yiqiutils\components\JwtValidationData::class,
         ],
     ],
     'params' => $params,
