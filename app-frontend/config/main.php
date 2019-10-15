@@ -45,4 +45,5 @@ return [
         ],
     ],
     'params' => $params,
+    'defaultRoute' => 'main/index',
 ];
