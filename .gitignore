@@ -44,3 +44,4 @@ phpunit.phar
 
 #### my
 composer.lock
+app-frontend/web/img
