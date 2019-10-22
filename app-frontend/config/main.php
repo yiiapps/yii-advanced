@@ -6,7 +6,7 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
-return [
+$config = [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -46,3 +46,11 @@ return [
     'params' => $params,
     'defaultRoute' => 'main/index',
 ];
+
+$config['defaultRoute'] = 'blog';
+$config['modules']['blog'] = [
+    'class' => 'funson86\blog\Module',
+    'controllerNamespace' => 'funson86\blog\controllers\frontend',
+];
+
+return $config;

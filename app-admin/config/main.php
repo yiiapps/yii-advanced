@@ -51,7 +51,11 @@ $config = [
     'timeZone' => 'Asia/Shanghai',
 ];
 $config = array_merge_recursive($config, require "../../vendor/yiiapps/adminlte-asset-ext/configs/adminlte.php");
-// var_dump($config);exit;
+
+$config['modules']['blog'] = [
+    'class' => 'funson86\blog\Module',
+    'controllerNamespace' => 'funson86\blog\controllers\backend',
+];
 
 if (YII_ENV_DEV) {
 // configuration adjustments for 'dev' environment
