@@ -50,12 +50,8 @@ $config = [
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Shanghai',
 ];
-$config = array_merge_recursive($config, require "../../vendor/yiiapps/adminlte-asset-ext/configs/adminlte.php");
-
-$config['modules']['blog'] = [
-    'class' => 'funson86\blog\Module',
-    'controllerNamespace' => 'funson86\blog\controllers\backend',
-];
+$config = array_merge_recursive($config, require "../../vendor/yiiexttbq/adminlte/configs/adminlte.php"
+    , require "../../vendor/yiiexttbq/blogmodule/configs/admin.php");
 
 if (YII_ENV_DEV) {
 // configuration adjustments for 'dev' environment

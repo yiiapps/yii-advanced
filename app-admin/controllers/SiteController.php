@@ -2,7 +2,7 @@
 namespace admin\controllers;
 
 use mdm\admin\models\form\Login;
-use yiiapps\yuqiutils\ControllerAdmin;
+use yiiexttbq\yuqiutils\ControllerAdmin;
 
 /**
  * Site controller

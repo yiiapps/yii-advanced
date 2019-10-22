@@ -3,7 +3,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
-        '@funson86/blog' => '@vendor/yii-exttbq/blog',
+        '@funson86/blog' => '@vendor/yiiexttbq/blog',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -14,28 +14,10 @@ $config = [
 
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Shanghai',
-
-    //blog
-    'components' => [
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-            ],
-        ],
-        'formatter' => [ //for the showing of date datetime
-            'dateFormat' => 'yyyy-MM-dd',
-            'datetimeFormat' => 'yyyy-MM-dd HH:mm:ss',
-            'decimalSeparator' => ',',
-            'thousandSeparator' => ' ',
-            'currencyCode' => 'CNY',
-        ],
-    ],
 ];
+$configSmarty = require $config['vendorPath'] . '/yiiexttbq/yuqiutils/configs/smarty.php';
+$configBlog = require $config['vendorPath'] . '/yiiexttbq/blogmodule/configs/common.php';
 
-$configSmarty = require $config['vendorPath'] . '/yiiapps/yuqiutils/configs/smarty.php';
+$config = array_merge_recursive($config, $configSmarty, $configBlog);
 
-return $configSmarty + $config;
+return $config;

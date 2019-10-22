@@ -4,7 +4,7 @@ namespace frontend\controllers;
 use common\models\LoginForm;
 use Yii;
 
-class UserController extends \yiiapps\yuqiutils\Controller
+class UserController extends \yiiexttbq\yuqiutils\Controller
 {
     /**
      * Logs in a user.

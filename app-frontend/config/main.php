@@ -47,10 +47,8 @@ $config = [
     'defaultRoute' => 'main/index',
 ];
 
-$config['defaultRoute'] = 'blog';
-$config['modules']['blog'] = [
-    'class' => 'funson86\blog\Module',
-    'controllerNamespace' => 'funson86\blog\controllers\frontend',
-];
+$configBlog = require '../../vendor/yiiexttbq/blogmodule/configs/frontend.php';
+
+$config = yii\helpers\ArrayHelper::merge($config, $configBlog);
 
 return $config;

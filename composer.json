@@ -20,10 +20,11 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "yiisoft/yii2-smarty": "^2.0",
         "mdmsoft/yii2-admin": "~2.0",
-        "yiiapps/adminlte-asset-ext": "^0.2.190924",
+        "yiiexttbq/adminlte": "~1.0.191022.1",
         "sizeg/yii2-jwt": "^2.0",
-        "yiiapps/yuqiutils": "^0.1",
-        "yii-exttbq/blog": "^0.1.191022"
+        "yiiexttbq/yuqiutils": "*",
+        "yiiexttbq/blog": "*",
+        "yiiexttbq/blogmodule": "~1.0.191022.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
