@@ -6,7 +6,7 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
-return [
+$config = [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -46,3 +46,4 @@ return [
     'params' => $params,
     'defaultRoute' => 'main/index',
 ];
+return array_merge_recursive($config, require '../../vendor/yiiexttbq/user/configs/main.php');

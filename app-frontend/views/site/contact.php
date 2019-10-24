@@ -1,1 +1,0 @@
-<?=\yiiexttbq\user\AutoloadExample::widget();

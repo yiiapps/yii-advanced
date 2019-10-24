@@ -13,12 +13,6 @@ $config = [
 
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Shanghai',
-
-    'modules' => [
-        'user' => [
-            'class' => 'dektrium\user\Module',
-        ],
-    ],
 ];
 
 $configSmarty = require $config['vendorPath'] . '/yiiapps/yuqiutils/configs/smarty.php';
