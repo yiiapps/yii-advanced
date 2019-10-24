@@ -23,7 +23,8 @@
         "yiiapps/adminlte-asset-ext": "^0.2.190924",
         "sizeg/yii2-jwt": "^2.0",
         "yiiapps/yuqiutils": "^0.1",
-        "dektrium/yii2-user": "^0.9.14"
+        "dektrium/yii2-user": "^0.9.14",
+        "yiiexttbq/user": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -44,6 +45,10 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "git",
+            "url": "file:///work/d/code/yii-extensions/user"
         }
     ]
 }

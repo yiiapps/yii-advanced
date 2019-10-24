@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfa8ff275434c893a58918ed41f4a17e",
+    "content-hash": "7c2d0b2b8cceb4cd6c07515b499e2614",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1212,6 +1212,40 @@
                 "yii2"
             ],
             "time": "2019-10-15T08:10:51+00:00"
+        },
+        {
+            "name": "yiiexttbq/user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "/work/d/code/yii-extensions/user",
+                "reference": "33d00a4040a9165cc6c44bbced860ba43b91ce82"
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yiiexttbq\\user\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tbq",
+                    "email": "tbq2616@sina.com"
+                }
+            ],
+            "description": "继承自dektrium/yii2-user",
+            "keywords": [
+                "extension",
+                "user",
+                "yii2"
+            ],
+            "time": "2019-10-24T02:24:33+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -4541,7 +4575,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "yiiexttbq/user": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
