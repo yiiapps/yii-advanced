@@ -4,7 +4,7 @@
 
 {{block name=css}}
 <!-- iCheck -->
-<link rel="stylesheet" href="/AdminLTE-2.4.18/plugins/iCheck/square/blue.css">
+<link rel="stylesheet" href="{{$static_website}}AdminLTE-2.4.18/plugins/iCheck/square/blue.css">
 {{/block}}
 
 {{block name=bodyClass}}hold-transition login-page{{/block}}
@@ -12,7 +12,7 @@
 {{block name=content}}
 <div class="login-box">
   <div class="login-logo">
-    <a href="/AdminLTE-2.4.18/index2.html"><b>后台管理</b>系统</a>
+    <a href="{{$static_website}}AdminLTE-2.4.18/index2.html"><b>后台管理</b>系统</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -64,7 +64,7 @@
 
 {{block name=js}}
 <!-- iCheck -->
-<script src="/AdminLTE-2.4.18/plugins/iCheck/icheck.min.js"></script>
+<script src="{{$static_website}}AdminLTE-2.4.18/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({

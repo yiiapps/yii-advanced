@@ -50,7 +50,7 @@ $config = [
     'language' => 'zh-CN',
     'timeZone' => 'Asia/Shanghai',
 ];
-$config = array_merge_recursive($config, require "../../vendor/yiiapps/adminlte-asset-ext/configs/adminlte.php");
+$config = array_merge_recursive($config, require "../../vendor/yiiexttbq/adminlte/configs/adminlte.php");
 // var_dump($config);exit;
 
 if (YII_ENV_DEV) {

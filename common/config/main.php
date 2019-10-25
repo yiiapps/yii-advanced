@@ -15,6 +15,6 @@ $config = [
     'timeZone' => 'Asia/Shanghai',
 ];
 
-$configSmarty = require $config['vendorPath'] . '/yiiapps/yuqiutils/configs/smarty.php';
+$configSmarty = require $config['vendorPath'] . '/yiiexttbq/yuqiutils/configs/smarty.php';
 
 return $configSmarty + $config;

@@ -6,7 +6,7 @@
 <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
       page. However, you can choose any other skin. Make sure you
       apply the skin class to the body tag so the changes take effect. -->
-<link rel="stylesheet" href="/AdminLTE-2.4.18/dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="{{$static_website}}AdminLTE-2.4.18/dist/css/skins/skin-blue.min.css">
 {{/block}}
 
 {{block name=bodyClass}}hold-transition skin-blue sidebar-mini{{/block}}
@@ -50,7 +50,7 @@
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="/AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="{{$static_website}}AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -135,14 +135,14 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="/AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="{{$static_website}}AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="/AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{$static_website}}AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -192,7 +192,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{$static_website}}AdminLTE-2.4.18/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -338,5 +338,5 @@
 
 {{block name=js}}
 <!-- AdminLTE App -->
-<script src="/AdminLTE-2.4.18/dist/js/adminlte.min.js"></script>
+<script src="{{$static_website}}AdminLTE-2.4.18/dist/js/adminlte.min.js"></script>
 {{/block}}

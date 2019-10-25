@@ -20,10 +20,9 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "yiisoft/yii2-smarty": "^2.0",
         "mdmsoft/yii2-admin": "~2.0",
-        "yiiapps/adminlte-asset-ext": "^0.2.190924",
+        "yiiexttbq/adminlte": "^1.0",
         "sizeg/yii2-jwt": "^2.0",
-        "yiiapps/yuqiutils": "^0.1",
-        "dektrium/yii2-user": "^0.9.14",
+        "yiiexttbq/yuqiutils": "^1.0",
         "yiiexttbq/user": "dev-master"
     },
     "require-dev": {

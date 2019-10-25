@@ -1,7 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-class MainController extends \yiiapps\yuqiutils\Controller
+class MainController extends \yiiexttbq\yuqiutils\Controller
 {
     /**
      * Displays homepage.
