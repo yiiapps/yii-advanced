@@ -23,7 +23,8 @@
         "yiiexttbq/adminlte": "^1.0",
         "sizeg/yii2-jwt": "^2.0",
         "yiiexttbq/yuqiutils": "^1.0",
-        "yiiexttbq/user": "dev-master"
+        "yiiexttbq/user": "dev-master",
+        "dektrium/yii2-user": "^0.9.14"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

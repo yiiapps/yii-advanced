@@ -46,4 +46,5 @@ $config = [
     'params' => $params,
     'defaultRoute' => 'main/index',
 ];
-return array_merge_recursive($config, require '../../vendor/yiiexttbq/user/configs/main.php');
+$config = yii\helpers\ArrayHelper::merge($config, require '../../vendor/yiiexttbq/user/configs/main.php');
+return $config;
