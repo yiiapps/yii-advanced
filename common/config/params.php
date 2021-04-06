@@ -5,6 +5,6 @@ $params = [
     'senderEmail' => 'noreply@example.com',
     'senderName' => 'Example.com mailer',
     'user.passwordResetTokenExpire' => 3600,
-    'static_website' => '',
+    'static_website' => 'http://statics.yii-advanced.com',
 ];
 return yii\helpers\ArrayHelper::merge($params, require $config['vendorPath'] . '/yiiexttbq/blogmodule/configs/params.php');
