@@ -22,7 +22,7 @@
         "yiiexttbq/adminlte": "^1.0",
         "sizeg/yii2-jwt": "^2.0",
         "yiiexttbq/yuqiutils": "^1.0",
-        "yiiexttbq/user": "dev-master",
+        "yiiexttbq/user": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -42,11 +42,11 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://asset-packagist.cn"
         },
         {
             "type": "git",
-            "url": "file:///work/d/code/yii-extensions/user"
+            "url": "file:///work/code/tbqphplib/yii_user"
         }
     ]
 }
