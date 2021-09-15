@@ -19,9 +19,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "yiisoft/yii2-smarty": "^2.0",
-        "yiiexttbq/adminlte": "^1.0",
+        "yiiexttbq/adminlte": "dev-master",
         "sizeg/yii2-jwt": "^2.0",
-        "yiiexttbq/yuqiutils": "^1.0",
+        "yiiexttbq/yuqiutils": "dev-master",
         "yiiexttbq/user": "dev-master"
     },
     "require-dev": {
@@ -43,10 +43,6 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.cn"
-        },
-        {
-            "type": "git",
-            "url": "file:///work/code/tbqphplib/yii_user"
         }
     ]
 }

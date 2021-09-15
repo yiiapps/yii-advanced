@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16c8e9baf9df847399aab8f49ad3459d",
+    "content-hash": "e6c3dc02819ee89c223faaf324271aa3",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1589,7 +1589,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "/work/code/tbqphplib/yii_user",
+                "url": "https://gitee.com/tbq2616/yii-user",
                 "reference": "b2ed8347e72050f51cf366be00cf808b2c270b44"
             },
             "require": {
@@ -1603,6 +1603,7 @@
                     "yiiexttbq\\user\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
