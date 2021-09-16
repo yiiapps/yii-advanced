@@ -25,7 +25,8 @@ CREATE TABLE `admin_auth_assignment` (
   `user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`item_name`,`user_id`),
-  KEY `auth_assignment_user_id_idx` (`user_id`)
+  KEY `auth_assignment_user_id_idx` (`user_id`),
+  CONSTRAINT `admin_auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `admin_auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `admin_auth_assignment` */
@@ -107,38 +108,6 @@ insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`c
 insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/admin/user/reset-password',2,NULL,NULL,NULL,1519364254,1519364254);
 insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/admin/user/signup',2,NULL,NULL,NULL,1519364254,1519364254);
 insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/admin/user/view',2,NULL,NULL,NULL,1519364254,1519364254);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/*',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/catalog/*',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/catalog/create',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/catalog/delete',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/catalog/index',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/catalog/update',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/catalog/view',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/comment/*',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/comment/create',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/comment/delete',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/comment/index',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/comment/update',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/comment/view',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/default/*',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/default/index',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/post/*',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/post/create',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/post/delete',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/post/index',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/post/update',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/post/view',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/tag/*',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/tag/create',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/tag/delete',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/tag/index',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/tag/update',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/adminblog/tag/view',2,NULL,NULL,NULL,1558669668,1558669668);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/site/index',2,NULL,NULL,NULL,1570523060,1570523060);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('/site/logout',2,NULL,NULL,NULL,1570523652,1570523652);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('公共权限',2,NULL,NULL,NULL,1570523671,1570523671);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('博客管理',2,NULL,NULL,NULL,1558670469,1558670469);
-insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('博客管理员',1,NULL,NULL,NULL,1571731958,1571731958);
 insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('系统管理',2,NULL,NULL,NULL,1519363858,1570523120);
 insert  into `admin_auth_item`(`name`,`type`,`description`,`rule_name`,`data`,`created_at`,`updated_at`) values ('系统管理员',1,NULL,NULL,NULL,1519363298,1570523150);
 
@@ -272,7 +241,7 @@ CREATE TABLE `admin_menus` (
   `visible` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `parent` (`parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `admin_menus` */
 

@@ -10,20 +10,20 @@
     <meta name="author" content="">
     <link rel="icon" href="/bootstrap3.4.1/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>首页-{{$appname}}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/bootstrap3.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{$static_website}}bootstrap3.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="/bootstrap3.4.1/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="{{$static_website}}bootstrap3.4.1/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/bootstrap3.4.1/starter-template.css" rel="stylesheet">
+    <link href="{{$static_website}}bootstrap3.4.1/starter-template.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/bootstrap3.4.1/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="{{$static_website}}bootstrap3.4.1/assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,13 +43,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">{{$appname}}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="active"><a href="/">首页</a></li>
+            {{if $isGuest}}
+            <li><a href="/user/security/login">登录</a></li>
+            <li><a href="/user/registration/register">注册</a></li>
+            {{else}}
+            <li><a href="/user/security/logout">退出</a></li>
+            {{/if}}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -70,8 +74,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="/bootstrap3.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="{{$static_website}}bootstrap3.4.1/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/bootstrap3.4.1/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{$static_website}}bootstrap3.4.1/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
